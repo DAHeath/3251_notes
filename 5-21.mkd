@@ -1,15 +1,15 @@
-Traffic Intensity (La/R)
-  An output buffer on a gigabit ethernet switch receives 2300 packets/sec
-  The average packet length is 50 kB
+### Traffic Intensity (La/R)
+  * An output buffer on a gigabit ethernet switch receives 2300 packets/sec
+  * The average packet length is 50 kB
 
-  What is the traffic intensity?
-    La/R
-    = (50 kB/sec * 2300 packets/sec * 1000 B/kB * 8 b/B)/(1 Gb * 1,000,000,000 b/Gb)
-    = 0.92 < 1
-    So there will not be packet loss in general
-    There could be some packet loss if there was a huge spike
+  * What is the traffic intensity?
+    - La/R
+    - = (50 kB/sec * 2300 packets/sec * 1000 B/kB * 8 b/B)/(1 Gb * 1,000,000,000 b/Gb)
+    - = 0.92 < 1
+    - So there will not be packet loss in general
+    - There could be some packet loss if there was a huge spike
 
-  What if the traffic intensity were 1.1?
-    The general trend for the buffer is to increase in length
-    The queueing delay would increase over time (until the queue is full anyway)
-    Eventually you will lose packets
+  * What if the traffic intensity were 1.1?
+    - The general trend for the buffer is to increase in length
+    - The queueing delay would increase over time (until the queue is full anyway)
+    - Eventually you will lose packets
