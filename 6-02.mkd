@@ -1,10 +1,29 @@
 ### DNS
 
-##### Your computer queries mydomain.com
-  1. Queries *Local DNS*
-  2. *Local DNS* queries *Root DNS*
-  3. *Root DNS* returns *TLD DNS ip*
-  4. *Local DNS* queries .com *TLD DNS*
-  5. .com *TLD DNS* returns *authoritative DNS ip*
-  6. *Local DNS* queries *authoritative DNS* 
-  7. *Authoritative DNS* returns the *ip address* of mydomain.com
+##### 4 Types of DNS Servers
+  * _Local DNS_
+  * _Root DNS_
+  * _TLD DNS_
+  * _Authoritative DNS_
+
+##### An example: Your computer queries mydomain.com
+  1. _Your computer_ queries _Local DNS_
+  2. _Local DNS_ queries _Root DNS_
+  3. _Root DNS_ returns _TLD DNS ip_
+  4. _Local DNS_ queries .com _TLD DNS_
+  5. .com _TLD DNS_ returns _authoritative DNS ip_
+  6. _Local DNS_ queries _authoritative DNS_ 
+  7. _Authoritative DNS_ returns the _ip address_ of mydomain.com
+  8. _Local DNS_ returns the _ip address_ to _your computer_
+
+##### Additional Notes
+Usually, the _caches_ in servers can store a query so that the next person doesn't
+have to query again. For example, google.com probably doesn't require you to go
+to the Root DNS
+
+There are _13 root DNS servers_
+
+##### How does DNS manage to be fault tolerant
+  * _Replication_ (for example the 13 root DNS servers)
+  * _Cached mappings_ (which could contain any level of server)
+  * _Separation_
