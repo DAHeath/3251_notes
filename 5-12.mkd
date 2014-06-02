@@ -1,0 +1,42 @@
+Protocol
+  How can we ensure that two computers are sending and expecting the same structure of information?
+  IETF main body that registers protocol standards (also IEEE)
+  RFC (request for comments) is basically the published protocol
+
+What is the internet?
+  Several machines communicating amongst themselves in a limited area in a Local Area Network (LAN)
+  You use routers to connect LANs together to form an Autonomous System (AS)
+  When you connect multiple AS's (via Point of Presence(PoP) Routers) creating the Internet
+  [An Internet Service Provider (ISP) simply accepts money to route traffic through their network]
+
+Layers (OSI model)
+  Application   (how do you ensure the application is done correctly)
+  Presentation  (how do you alter the data you send/receive to make it usable (e.g. encryption))
+  Session       (how do you ensure that messages coming from one location are grouped)
+  Transport     (how do you provide additional services between the end-points (reliability, etc.))
+  Network       (how do you forward packets within and between AS's)
+  Link          (how do you move something from one place to the other in the LAN (ethernet) or in the WAN)
+  Physical      (how do you put bits on the wire)
+
+HTTP Message
+  L7 Application -> HTTP Message [ Header | Body ]
+  ..
+  L4 Transport   -> [ TCP Header [ Header | Body ]]
+  L3 Network     -> [ Network Header [ TCP Header [ Header | Body ]]]
+  L2 Link        -> [ Link Header [ Network Header [ TCP Header [ Header | Body ]]]]
+  L1 Physical    -> 1001101011...
+
+
+Talking in a crowded room
+  You have a single administrator who will call on individuals as well as track raised hands
+  Individuals who want to speak will raise his/her hand
+  The admin will call on the person who most recently raised his/her hand
+    In the event of a tie, the admin will randomly choose
+  The called on person has a fixed amount of time (say 15 seconds) to speak
+
+By Wednesday read...
+  Syllabus
+  Ch. 1 except 1.2, 1.6, 1.7
+    also 2.1.2, 2.7
+  Download wireshark
+
