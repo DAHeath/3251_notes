@@ -56,3 +56,5 @@ There are _13 root DNS servers_
   often, __peer ID__ = hash(IP)  
   __Why hash?__  
   Hashing gives you better performance because of faster access
+
+### Read section 3.3 (UDP)
