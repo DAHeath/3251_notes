@@ -3,7 +3,7 @@
 ##### 4 Types of DNS Servers
   * _Local DNS_
   * _Root DNS_
-  * _TLD DNS_
+  * _Top Level Domain DNS_
   * _Authoritative DNS_
 
 ##### An example: Your computer queries mydomain.com
@@ -17,9 +17,9 @@
   8. _Local DNS_ returns the _ip address_ to _your computer_
 
 ##### Additional Notes
-Usually, the _caches_ in servers can store a query so that the next person doesn't
-have to query again. For example, google.com probably doesn't require you to go
-to the Root DNS
+Usually, the _caches_ in servers can store a query so that the next person 
+doesn't have to query again. For example, google.com probably doesn't require 
+you to go to the Root DNS.
 
 There are _13 root DNS servers_
 
@@ -27,3 +27,5 @@ There are _13 root DNS servers_
   * _Replication_ (for example the 13 root DNS servers)
   * _Cached mappings_ (which could contain any level of server)
   * _Separation_
+
+### P2P
