@@ -12,7 +12,7 @@
   3. _Root DNS_ returns _TLD DNS ip_
   4. _Local DNS_ queries .com _TLD DNS_
   5. .com _TLD DNS_ returns _authoritative DNS ip_
-  6. _Local DNS_ queries _authoritative DNS_ 
+  6. _Local DNS_ queries _authoritative DNS_
   7. _Authoritative DNS_ returns the _ip address_ of mydomain.com
   8. _Local DNS_ returns the _ip address_ to _your computer_
 
@@ -28,4 +28,31 @@ There are _13 root DNS servers_
   * _Cached mappings_ (which could contain any level of server)
   * _Separation_
 
+* * *
+
 ### P2P
+  * No clients/servers, but _peers_
+  * _Scalable_ because the peers share resources
+  * _Small resources_ (In the server model companies can fork out money)
+  * _Peer churn_, meaning that peers may come in and out
+
+##### How does P2P design provide scalability
+  * _BitTorrent_ more peers => more bandwidth
+  * _Distributed_ Hash Torrent more peers => fewer key-value pairs/peer
+
+##### How does BitTorrent prevent freeloading (people not contributing)
+  * _Proportional bandwidth_ (top 4 contributors, 1 random leech get resources)
+    - __Why random?__
+    - Bootstrapping to get people resources
+    - Helping those who can't be at the top
+    - Finding better top 4 contributor
+  * Results in low bandwidth peers with low bandwidth peers and high with high
+
+##### DHT's and Hashing
+  __What is a hash function__  
+  Maps some software entity to an integer value (hash value)  
+  e.g. string => 32 bit number  
+  When two things map to the same hash number, it's known as a _collision_  
+  often, __peer ID__ = hash(IP)  
+  __Why hash?__  
+  Hashing gives you better performance because of faster access
