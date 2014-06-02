@@ -1,0 +1,41 @@
+Different types of protocols:
+  Is the protocol generally used to send or receive information?
+  Pull: HTTP, FTP
+  Push: SMTP
+
+  Does the protocol keep track of the transactions happening?
+  Stateful: FTP
+  Stateless: HTTP
+    Normally state is tracked via cookies
+
+  Is the connection kept open once it is made?
+  Persistent connection: FTP
+  Non Persistent connection: HTTP (when you aren't using keep-alive)
+    (Importantly, stateful connections require a persistent connection)
+
+  Control messages
+  In-Band (control message on same link as data): HTTP, SMTP
+  Out-of-Band (separate connections): FTP
+
+
+Think-Pair-Share
+  Why is SMTP a push protocol? You send things even if they aren't wanted
+  Why is HTTP a pull protocol? You wait for a request before sending
+
+  Why is FTP a stateful protocol..
+  While HTTP is not?
+
+  What is the benefit of FTP using out-of-band control?
+
+
+DNS (Domain name system)
+  A distributed lookup database
+  Because it's easier to remember the name of the website than an ip address
+  Top level domain (such as com, edu, gov)
+
+  Local DNS server (ISP tells you where to find the local DNS server)
+  Root name server
+    Points you to the TLD name server
+  Top level domain name server (in charge of, say, .com)
+    Indicates where the authoritative name server is, given a request
+  Authoritative name server, where the actual mapping is held

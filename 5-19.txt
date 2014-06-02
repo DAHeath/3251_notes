@@ -1,0 +1,68 @@
+Frequency Division Multiplexing
+  Problem:
+    A FDM link has 1.536 Mbps
+    Spectrum range is 4kHz to 44kHz and divided into 4kHz bands
+    It takes 500ms to establish a circuit
+    How long will it take to send a 640kb file? 
+
+    1.536/10 = 153.6 kbps
+    640kb/153.6kbps = 4.17s 
+    4.17s + 0.5s = 4.67s
+
+Time Division Multiplexing
+  Problem:
+    A TDM link has 3 Mbps
+    Every 10 sec period is divided into 500 ms slots
+    It takes 1 sec to establish a circuit
+    How long will it take to send a 5 MB file
+
+    3 Mbps/20 channels = 150kbps/channel
+    40 Mb / 150 kbps * 1000 kb/Mb = 266.666...s
+    267 + 1 = 268s (worst case)
+    could be 9.5 seconds faster
+
+Packet Switching
+  Consults a forwarding table to determine where the incoming packets should be sent
+  Link has buffer that stores incoming packets (in case input is greater than output)
+    Leads to queueing delay (How long before packet moves from back to front of queue)
+    What happens if buffer is full and packet comes in? Packet loss
+  Better utilization of the bandwidth than circuit switched networks
+    Because resources are distributed on demand
+
+  Delay:
+    Processing Delay: Time it takes for information to be processed
+    Transmission Delay: How fast bits can be put onto wire
+    Propogation Delay: How long it takes bit to travel down wire (limited by speed of light)
+    Queueing Delay: (packet switching only)
+
+
+    S ---- O ------- O ------ O --- D
+    S => source
+    O => switch
+    D => destination
+
+    d_proc = 2 ms
+    R_sw = 1 Gbps
+    R_host = 100 Mbps
+    s = 2*10^8 m/s
+    d_1 = 4000 km
+    d_2 = 7000 km
+    d_3 = 6000 km
+    d_4 = 3000 km
+    d_total = 20000 km
+    d_queue = 2 ms/switch
+
+    d_xmission = 3*(L / R_sw) + L(R_host)
+    d_prop = d_total / s
+
+    3(d_proc + d_queue) + d_xmission + d_prop = 
+
+  Throughput
+    Equal to the lowest throughput in the used network
+
+Network Latency -> How long does it take a bit to get from one place to another
+  ping
+  Latency isn't usually the problem when dealing with big files, throughput is
+    (Throughput is really only concerned with the transmission delay)
+
+Read 2.3 -> 2.5

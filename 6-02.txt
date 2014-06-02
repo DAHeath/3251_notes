@@ -1,0 +1,10 @@
+### DNS
+
+##### Your computer queries mydomain.com
+  1. Queries *Local DNS*
+  2. *Local DNS* queries *Root DNS*
+  3. *Root DNS* returns *TLD DNS ip*
+  4. *Local DNS* queries .com *TLD DNS*
+  5. .com *TLD DNS* returns *authoritative DNS ip*
+  6. *Local DNS* queries *authoritative DNS* 
+  7. *Authoritative DNS* returns the *ip address* of mydomain.com

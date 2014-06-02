@@ -1,0 +1,11 @@
+Socket
+  has:
+    source ip
+    source port number
+    destination ip
+    destination port number
+
+Circuit Switching
+  static setup of connection for communication  
+  FDM (dividing the bandwidth into different frequencies) (used in wifi)
+  TDM (giving each client a portion of time) (used in cell phones)
