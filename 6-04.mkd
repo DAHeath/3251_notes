@@ -8,7 +8,7 @@
   * Transport layer sees abstraction of network that gets bits from one point to
     next
   * Transport layer wants to provide services on top of _Physical_, _Link_, and
-    _Network_ layers.
+    _Network_ layers
   * Can make up for some of the shortcomings of the lower layers
   * Transport layer is an _"end-to-end"_ service
 
@@ -36,15 +36,23 @@
 
 ##### Connection vs Connectionless
   * Connection
-    1. Client creates socket at a port (e.g. 1234)
-    2. Server binds socket to a port (e.g. 80)
-    3. Client requests connection
-    4. Server creates new socket at a port (e.g. 4321)
-    5. Communication occurs between client and server on 1234 and 4321
-    - Multiple connections can easily occur on different sockets and, for the
-      server, it is easy to distinguish which data belongs where
+    1. Client _creates socket_ at a port (e.g. 1234)
+    2. Server _binds socket_ to a port (e.g. 80)
+    3. Client _requests connection_
+    4. Server _creates new socket_ at a port (e.g. 4321)
+    5. _Communication occurs_ between client and server on 1234 and 4321...
+       Multiple connections can easily occur on different sockets and, for the
+       server, it is easy to distinguish which data belongs where
 
   * Connectionless
-    1. Client creates a socket (e.g. 1234)
-    2. Server binds a socket (e.g. 8080)
-    3. Communication occurs between client and server on 1234 and 8080
+    1. Client _creates a socket_ (e.g. 1234)
+    2. Server _binds a socket_ (e.g. 8080)
+    3. _Communication occurs_ between client and server on 1234 and 8080...
+       Information about where the message came from has to be send
+
+##### UDP Framing
+  * Each message starts with a header
+
+##### UDP Error Detection
+  * Uses a _checksum_ to see if bits were changed in transit
+
