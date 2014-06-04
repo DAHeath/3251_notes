@@ -4,16 +4,47 @@
   * List the _features_ of __UDP__
   * Explain how UDP's _mechanisms_ provide those _services_
 
-#### What does the Tranpsort Layer do?
-  * Transport layer sees abstraction of network that gets bits from one point
-    to next
+### Transport Layer
+  * Transport layer sees abstraction of network that gets bits from one point to
+    next
   * Transport layer wants to provide services on top of _Physical_, _Link_, and
     _Network_ layers.
   * Can make up for some of the shortcomings of the lower layers
   * Transport layer is an _"end-to-end"_ service
 
 ##### Lower Layers give their "Best Effort"
-  * Traffic intensity > 1, packets will get lost, but the network layer
-    will give it's best effort to try to ensure that doesn't happen
+  * Traffic intensity > 1, packets will get lost, but the network layer will
+    give it's best effort to try to ensure that doesn't happen
   * Out of order delivery may occur
   * Could be bit errors in the packets
+
+##### Services of the Transport Layer
+  * _Security_ (e.g. encryption)
+  * _Multiplexes_ communication endpoints
+  * _Reliability_
+  * _Congestion Control_ prevents too many messages from being sent in terms of
+    the network
+  * _Flow Control_ prevents sending more than the receiver can take in
+  * _Latency guarantees_
+  * _Throughput guarantees_
+
+### UDP (as an example of a Transport Layer)
+  * Multiplexes sockets
+  * Error detection (not correction)
+  * Framing
+  * Connectionless
+
+##### Connection vs Connectionless
+  * Connection
+    1. Client creates socket at a port (e.g. 1234)
+    2. Server binds socket to a port (e.g. 80)
+    3. Client requests connection
+    4. Server creates new socket at a port (e.g. 4321)
+    5. Communication occurs between client and server on 1234 and 4321
+    - Multiple connections can easily occur on different sockets and, for the
+      server, it is easy to distinguish which data belongs where
+
+  * Connectionless
+    1. Client creates a socket (e.g. 1234)
+    2. Server binds a socket (e.g. 8080)
+    3. Communication occurs between client and server on 1234 and 8080
