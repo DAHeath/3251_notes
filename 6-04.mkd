@@ -1,0 +1,19 @@
+### Lesson Objectives
+  * Understand the role of the __Transport Layer__
+  * Give examples of _services_ the transport layer may provide
+  * List the _features_ of __UDP__
+  * Explain how UDP's _mechanisms_ provide those _services_
+
+#### What does the Tranpsort Layer do?
+  * Transport layer sees abstraction of network that gets bits from one point
+    to next
+  * Transport layer wants to provide services on top of _Physical_, _Link_, and
+    _Network_ layers.
+  * Can make up for some of the shortcomings of the lower layers
+  * Transport layer is an _"end-to-end"_ service
+
+##### Lower Layers give their "Best Effort"
+  * Traffic intensity > 1, packets will get lost, but the network layer
+    will give it's best effort to try to ensure that doesn't happen
+  * Out of order delivery may occur
+  * Could be bit errors in the packets
