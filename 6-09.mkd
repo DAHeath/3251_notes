@@ -1,0 +1,35 @@
+### Lesson Objectives
+  * Design a protocol to provide _end-to-end reliability_
+  * Compare _protocol design alternatives_
+
+### How do you deal with talking to one another
+  * Ask someone to repeat themself - _NACK_
+  * Repeat back - _ACK_ (OK)
+    - -> Automatic repeat request
+
+#### ARQ Protocol -> Bit errors
+  * Assume bit errors, no packet loss
+  * Describe Protocol in detail
+    - Algorithms for messages
+    - No pseudocode or msg format
+
+  * _Stop and Wait Protocol_
+    - Sender sends a message that is numbered (sequence number)
+    - If receiver gets message with no bit errors, receiver sends ACK
+    - If receiver gets bit errors, receiver sends NACK
+    - If sender receives ACK, sends next packet
+    - If sender receives NACK, sends packet again
+    - If sender receives bad packet, sends packet again
+
+  * _With packet loss_
+    - Same protocol with a timeout that is treated as a NACK
+    - Both sender and receiver resend message after a time
+
+  * _Problems_
+    - Takes an entire round trip to send a data packet, even if there is no loss
+
+  * _Pipelining_
+    - Similar protocol. However, don't wait for ACK. Only resend messages
+      where no ACK is received or NACK is received
+    - _Window_, table for unacknowledged packets
+    - _Cumulative ACK_, acknowledge more than one message at once
