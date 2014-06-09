@@ -33,3 +33,5 @@
       where no ACK is received or NACK is received
     - _Window_, table for unacknowledged packets
     - _Cumulative ACK_, acknowledge more than one message at once
+
+### Read 3.4.3 -> 3.5.2
