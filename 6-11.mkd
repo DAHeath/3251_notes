@@ -1,0 +1,53 @@
+### Lesson Objectives
+  * Explain how the mechanisms of _Go-Back-N (GBN)_ and _Selective Repeat (SR)_
+    protocols work
+  * Show send and receive windows for example interactions using GBN and SR
+  * Show the interactions on a timing diagram for presented scenarios using GBN
+    and SR
+
+### Go-Back-N (GBN)
+__Regular Operation__
+  * Sender sends number of packets equal to size of window
+  * Receiver has no window
+  * Upon receiving each packet, sends an ACK containing the message number
+  * Each ACK is cumulative, so as the sender gets ACKS it can slide window
+  * As soon as window includes a new number, it can send that numbered packet
+
+__Packet Loss__
+  * Consider receive 0, lose 1, receive 2
+  * Send ACK 0 on 0
+  * Sender sends packet 3 since it is unaware that something went wrong
+  * Send ACK 0 on 2
+  * Sender hits timeout waiting for ACK 1 and resends 1, 2, and 3
+  * Receiver sends ACK 1, etc. and we are back to normal operation
+
+__Example__
+  * In GBN using N = 4, the sender has 8 packets to deliver. ACK for packet 2 
+    gets lost. Sequence number starts a 0.
+  * Label the indicated message.
+  * Show the indicated window
+  * Draw the remaining interactions(messages)
+
+  * Missing label is ACK 3 since receiver doesn't know ACK 2 was lost.
+  * Sender can just advance window past 3 anyway, since ACKs are cumulative.
+    There is no need to wait for ACK 2 to arrive.
+
+### Selective Repeat
+__Regular Operation__
+  * Not going to do cumulative ACK, do individual ACK for each packet
+  * In N = 3, both sender and receiver start with window containing 0->2
+  * Receiver window can be acknowledged or waiting to be receive
+  * When receiver gets packet, it slides window right and sends ACK
+  * When sender gets ACK, slide window right then send rightmost packet in
+    window
+
+__Ack Loss__
+  * ACK 1 is lost
+  * So receiver has [3 4 5] and sender has [1 2 3]
+  * Timeout before ACK 2 arrives
+  * Sender resends Packet 1
+  * Sender receives ACK 2, what does window look like?
+    Still [1 2 3] with a note that 2 has been acknowledged
+  * Sender receives ACK 3
+  * When sender receives ACK 1 window goes from [1 2 3] to [4 5 6] directly
+
