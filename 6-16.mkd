@@ -36,6 +36,7 @@
     - TCP keeps an estimate of the __variation among RTT's__
       (similar weighted running average)
     - You do not consider retransmitted packets for RTT calculations
+    - Use EstRTT + 4 DevRTT
 
 ### Paper Assignment
   * Choose an advanced topic (that won't be covered in class)
