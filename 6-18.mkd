@@ -1,0 +1,16 @@
+### Lesson Objectives
+  * Summarize TCP reliability mechanisms
+  * Apply knowledge of TCP to complete a timing diagram
+  * Explain how TCP flow control guarantees the receive buffer will not overflow
+  * Defend the necessity of TCP connection management features 
+    (e.g. 3-way handshake, timed wait)
+
+  * Test is next Monday
+    - Review homeworks and quizzes
+    - Only a half period
+
+### TCP Flow Control
+  * At any time, window has some amount of data and some amount of free space
+    - recv buffer...
+    - [__free__|XXX __data__ XXX]
+    - recv(appbuf, size)
