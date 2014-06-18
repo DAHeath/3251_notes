@@ -1,0 +1,44 @@
+### Lesson Objectives
+  * Compare and critique different protocols
+  * Describe differences (pros and cons) between Go-Back-N and Selective Repeat
+  * Summarize the considerations to account for when choosing a "good" timeout
+    period
+
+### Reliability
+  * Guaranteed Delivery
+  * Delivered in order
+  * Free of bit errors
+
+### Justify the use of one of the protocols
+##### Why would you choose Go-Back-N?
+  There are several reasons to choose Go-Back-N over Selective Repeat.
+  The biggest advantage that Go-Back-N has is its relatively simple
+  implementation. Whereas Selective Repeat requires multiple timers and
+  receiver overhead, Go-Back-N only requires a single sending window and a
+  single timer...
+
+### Timers
+  * What is a good timeout?
+  * How short is too short?
+    - Must be at least as long as the __round trip time__(RTT)
+    - Otherwise every packet will be resent
+  * How long is too long?
+    - You don't want to wait endlessly after sending packets...
+    - So shorter is better
+    - Less than RTT + "a little bit"
+  * So we need to measure RTT
+    - Send a packet and measure the time to the ACK
+    - RTT varies from packet to packet, so some sort of weighted average which
+      varies as packets arrive would be powerful
+    - __Estimated RTT__
+    - However, using the RTT directly is a bad idea, since half of the packets
+      would take longer than this
+    - TCP keeps an estimate of the __variation among RTT's__
+      (similar weighted running average)
+    - You do not consider retransmitted packets for RTT calculations
+
+### Paper Assignment
+  * Choose an advanced topic (that won't be covered in class)
+  * Research that technology/protocol and write a paper about it
+  * Two sources (minimum) other than the book and wikipedia
+    - Perhaps use the standard for the protocol
