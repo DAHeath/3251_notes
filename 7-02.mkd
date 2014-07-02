@@ -1,0 +1,47 @@
+### Lesson Objectives
+  * Describe the differences between __Link State (L.S)__ and
+    __Distance Vector (D.V.)__
+  * Show the algorithm state while walking throw examples
+  * Explain why Poisoned Reverse is necessary and what its limitations are
+
+### Types of routing algorithms
+  * Centralized (consider the entire graph)
+  * Decentralized (partial graph)
+
+B E I K
+G D A B C F
+A B E J
+
+### Link State (LS)
+  * Centralized
+  * Routers broadcast their links
+  * Dijkstra's or Prim's
+
+  * Example...
+    - step | N'     |  D(b),p(b)  D(c),p(c)  D(d),p(d)  D(e),p(e)  D(f),p(f)
+    - ----------------------------------------------------------------------
+    - 0    | a      |  1,a        inf        1,a        inf        inf
+    - 1    | ab     |             2,b                   3,b        inf
+    - 2    | abd    |                                              inf
+    - 3    | abdc   |                                              4,c
+    - 4    | abdce  |
+    - 5    | abdcef |
+
+### Distance Vector (DV)
+  * Decentralized and Distributed
+  * Uses Bellman-Ford
+    - dx(y) = minv { c(x,v), dv(y) }
+    - Shortest path from x to y is shortest path x to some v and v to y
+  * Need neighbors distance vector to destination
+  * Need weights for connected link
+
+  * Iteratively get dv from a neighbor
+  * Update your dx using Bellman-Ford
+  * If dx changed, send dx to neighbors
+  * Example
+    - link [A B C D E F]
+    - D -> [1 2 5 0 3 6]
+    - A -> [0 1 2 1 3 4]
+    - A sends to D
+    - D -> [1 2 3 0 3 5]
+    - Then D sends its DV to A, B, C, E, F

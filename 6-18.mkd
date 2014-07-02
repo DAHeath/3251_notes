@@ -13,4 +13,16 @@
   * At any time, window has some amount of data and some amount of free space
     - recv buffer...
     - [__free__|XXX __data__ XXX]
+    - Free space is called the __receive window__ (r-wnd)
     - recv(appbuf, size)
+  * What happens if the data comes in more quickly than it leaves the buffer
+  * So how can we stop data from coming in too quickly?
+  * Ensure __data in transit is less than r-wnd__
+  * Assumes data in transit it unACKed data
+  * ACK includes receive window
+  * If the r-wnd is sent as 0, there is a deadlock
+    - The sender won't send anything because there's no room
+    - The receiver won't send ACK because there's no data!
+    - Hack in TCP, sender sends one byte
+
+### Look at connection management
